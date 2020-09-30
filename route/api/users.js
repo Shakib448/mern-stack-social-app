@@ -3,6 +3,8 @@ const router = express.Router();
 const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs"); // # password
 const { check, validationResult } = require("express-validator");
+const jwt = require("jsonwebtoken");
+const config = require("config");
 // Model
 const User = require("../../models/User");
 // @route   POST api/users
@@ -58,7 +60,23 @@ router.post(
       // save database
       await user.save();
       // Return the jsonwebtoken
-      res.send("User registered");
+      const payload = {
+        user: {
+          id: user.id, // This is mongoose id not mongodb _id
+        },
+      };
+
+      jwt.sign(
+        payload,
+        config.get("jwtSecret"),
+        { expiresIn: 360000 }, // This use for token change hors
+        (err, token) => {
+          // This is throw the err
+          if (err) throw err;
+          // This send the token client site
+          res.json({ token });
+        }
+      );
     } catch (error) {
       console.log(error.message);
       res.status(500).send("Server Error");
