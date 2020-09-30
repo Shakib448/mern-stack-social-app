@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const connectDB = require("./config/db");
 const cors = require("cors");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 
 const PORT = process.env.PORT || 5000;
 
@@ -12,8 +12,9 @@ connectDB();
 // This is handle the cors requests error
 app.use(cors());
 
-//This is handle Unicode encoding errors
-app.use(bodyParser.json());
+// init Middleware
+app.use(express.json({ extended: false }));
+// app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.send("API running");
