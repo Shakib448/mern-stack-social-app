@@ -28,4 +28,33 @@ const ProfileSchema = new mongoose.Schema({
   githubusername: {
     type: String,
   },
+  experience: [
+    {
+      title: {
+        type: String,
+        required: true,
+      },
+      company: {
+        type: String,
+        required: true,
+      },
+      location: {
+        type: String,
+      },
+      from: {
+        type: Date,
+        required: true,
+      },
+      to: {
+        type: Date,
+      },
+      current: {
+        type: Boolean, // this used for true and false like check box
+        default: false,
+      },
+      description: {
+        type: String,
+      },
+    },
+  ],
 });
