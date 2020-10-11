@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const connectDB = require("./config/db");
 const cors = require("cors");
-// const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 
 const PORT = process.env.PORT || 5000;
 
@@ -14,7 +14,7 @@ app.use(cors());
 
 // init Middleware
 app.use(express.json({ extended: false }));
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.send("API running");
