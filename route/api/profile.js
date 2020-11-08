@@ -263,8 +263,6 @@ router.put(
       description,
     } = req.body;
 
-    console.log(req.body.school);
-
     const newEdu = {
       school,
       degree,
