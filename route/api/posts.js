@@ -119,7 +119,7 @@ router.put("/likes/:id", auth, async (req, res) => {
       post.likes.filter((like) => like.user.toString() === req.user.id).length >
       0
     ) {
-      return res.status(404).json({ msg: "Post already liked" });
+      return res.status(400).json({ msg: "Post already liked" });
     }
     post.likes.unshift({ user: req.user.id });
 
