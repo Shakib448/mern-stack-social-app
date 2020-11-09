@@ -2,7 +2,7 @@ import React from "react";
 
 const Login = () => {
   return (
-    <>
+    <section className="container">
       <div className="alert alert-danger">Invalid credentials</div>
       <h1 className="large text-primary">Sign In</h1>
       <p className="lead">
@@ -25,7 +25,7 @@ const Login = () => {
       <p className="my-1">
         Don't have an account? <a href="register.html">Sign Up</a>
       </p>
-    </>
+    </section>
   );
 };
 

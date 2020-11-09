@@ -11,10 +11,10 @@ function App() {
         <Navbar />
         <Route exact path="/" component={Landing} />
         <Switch>
-          <section className="container">
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-          </section>
+          {/* <section className="container"> */}
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          {/* </section> */}
         </Switch>
       </Router>
     </>
