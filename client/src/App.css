@@ -19,6 +19,8 @@ body {
   line-height: 1.6;
   background-color: #fff;
   color: #333;
+  height: 100vh;
+  /* overflow: hidden; */
 }
 
 a {
