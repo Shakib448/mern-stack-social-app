@@ -1,9 +1,12 @@
 import "./App.css";
+import Landing from "./Components/Layout/Landing";
+import Navbar from "./Components/Layout/Navbar";
 
 function App() {
   return (
     <>
-      <h1>Hello coder </h1>
+      <Navbar />
+      <Landing />
     </>
   );
 }
