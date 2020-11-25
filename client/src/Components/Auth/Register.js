@@ -19,16 +19,12 @@ const Register = () => {
       [e.target.password2]: e.target.value,
     });
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (password !== password2) {
       console.log("password do not match");
     } else {
-      const newUser = {
-        name,
-        email,
-        password,
-      };
+      console.log("Successful");
     }
   };
 

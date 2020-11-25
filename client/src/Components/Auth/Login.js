@@ -1,29 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = formData;
+
+  const onChange = (e) =>
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+      [e.target.email]: e.target.value,
+      [e.target.password]: e.target.value,
+      [e.target.password2]: e.target.value,
+    });
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log("Successful");
+  };
+
   return (
     <section className="container">
-      <div className="alert alert-danger">Invalid credentials</div>
       <h1 className="large text-primary">Sign In</h1>
       <p className="lead">
-        <i className="fas fa-user"></i> Sign into Your Account
+        <i className="fas fa-user"></i> Sign Into Your Account
       </p>
-      <form className="form" action="dashboard.html">
+      <form className="form" onSubmit={(e) => onSubmit(e)}>
         <div className="form-group">
           <input
             type="email"
             placeholder="Email Address"
+            value={email}
+            onChange={(e) => onChange(e)}
             name="email"
-            required
           />
         </div>
         <div className="form-group">
-          <input type="password" placeholder="Password" name="password" />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            minLength="6"
+            value={password}
+            onChange={(e) => onChange(e)}
+          />
         </div>
+
         <input type="submit" className="btn btn-primary" value="Login" />
       </form>
       <p className="my-1">
-        Don't have an account? <a href="register.html">Sign Up</a>
+        Don't have an account? <Link to="/register">Sign Up</Link>
       </p>
     </section>
   );
