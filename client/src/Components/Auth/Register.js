@@ -23,7 +23,13 @@ const Register = () => {
     e.preventDefault();
     if (password !== password2) {
       console.log("password do not match");
-    } else console.log(formData);
+    } else {
+      const newUser = {
+        name,
+        email,
+        password,
+      };
+    }
   };
 
   return (
