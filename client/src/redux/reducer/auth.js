@@ -3,6 +3,8 @@ import {
   REGISTER_FAIL,
   USER_LOADED,
   AUTH_ERROR,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
 } from "../actions/type";
 
 const initialState = {
@@ -24,6 +26,7 @@ const auth = (state = initialState, action) => {
         user: payload,
       };
     case REGISTER_SUCCESS:
+    case LOGIN_SUCCESS:
       localStorage.setItem("token", payload.token);
       return {
         ...state,
@@ -31,15 +34,9 @@ const auth = (state = initialState, action) => {
         isAuthenticated: true,
         loading: false,
       };
-    case REGISTER_FAIL:
-      localStorage.removeItem("token");
-      return {
-        ...state,
-        token: null,
-        isAuthenticated: false,
-        loading: false,
-      };
     case AUTH_ERROR:
+    case REGISTER_FAIL:
+    case LOGIN_FAIL:
       localStorage.removeItem("token");
       return {
         ...state,
