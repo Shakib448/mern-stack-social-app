@@ -29,7 +29,7 @@ const Register = ({ setAlert, register }) => {
     if (password !== password2) {
       setAlert("password do not match", "danger");
     } else {
-      register({ name, email, password });
+      register(name, email, password);
     }
   };
 

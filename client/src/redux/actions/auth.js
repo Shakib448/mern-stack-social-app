@@ -33,7 +33,7 @@ export const loadUser = () => async (dispatch) => {
 
 // Register
 
-export const register = ({ name, email, password }) => async (dispatch) => {
+export const register = (name, email, password) => async (dispatch) => {
   const body = { name, email, password };
 
   try {
