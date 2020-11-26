@@ -5,8 +5,19 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
 import Alert from "./Components/Layout/Alert";
+import setAuthToken from "./ulits/utilsAuthToken";
+import { useEffect } from "react";
+import { loadUser } from "./redux/actions/auth";
+import store from "./redux/store/store";
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 function App() {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
   return (
     <>
       <Router>
