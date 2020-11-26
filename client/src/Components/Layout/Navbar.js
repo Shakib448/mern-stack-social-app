@@ -8,12 +8,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
       <li>
-        <NavLink onClick={logout} to="/">
-          <i className="fas fa-sign-out-alt"></i>{" "}
-          <span onClick={logout} className="hide-sm">
-            Logout
-          </span>{" "}
-        </NavLink>
+        <a onClick={logout} href="#!">
+          <i className="fas fa-sign-out-alt" />{" "}
+          <span className="hide-sm">Logout</span>
+        </a>
       </li>
     </ul>
   );
@@ -52,4 +50,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, logout)(Navbar);
+export default connect(mapStateToProps, { logout })(Navbar);
