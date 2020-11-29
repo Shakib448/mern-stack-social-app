@@ -12,6 +12,7 @@ import store from "./redux/store/store";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import PrivateRoute from "./Components/Routing/PrivateRoute";
 import CreateProfile from "./Components/Prfoile_Form/CreateProfile";
+import EditProfile from "./Components/Prfoile_Form/EditProfile";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -37,6 +38,7 @@ function App() {
               component={CreateProfile}
             />
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <PrivateRoute exact path="/edit-profile" component={EditProfile} />
           </Switch>
         </section>
       </Router>

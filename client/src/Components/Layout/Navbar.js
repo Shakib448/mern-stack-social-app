@@ -12,7 +12,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <NavLink to="/dashboard">Dashboard</NavLink>
       </li>
       <li>
-        <a onClick={logout}>
+        <a onClick={logout} href="#!">
           <i className="fas fa-sign-out-alt" />{" "}
           <span style={{ cursor: "pointer" }} className="hide-sm">
             Logout
