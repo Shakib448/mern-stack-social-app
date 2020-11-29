@@ -11,6 +11,7 @@ import { loadUser } from "./redux/actions/auth";
 import store from "./redux/store/store";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import PrivateRoute from "./Components/Routing/PrivateRoute";
+import CreateProfile from "./Components/Prfoile_Form/CreateProfile";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -30,6 +31,11 @@ function App() {
           <Switch>
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
+            <PrivateRoute
+              exact
+              path="/create-profile"
+              component={CreateProfile}
+            />
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
           </Switch>
         </section>
