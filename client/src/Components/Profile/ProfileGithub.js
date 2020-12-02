@@ -11,29 +11,40 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
   return (
     <>
       {repos.length === 0 && <h1> No github repositories</h1>}
-      {repos.map(({ id, name, description }) => (
-        <div key={id} className="repo bg-white p-1 my-1">
-          <div>
-            <h4>
-              <a
-                href={`https://github.com/Shakib448/${name}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {name}
-              </a>
-            </h4>
-            <p>{description ? { description } : "No description yet"}</p>
+      {repos.map(
+        ({
+          id,
+          name,
+          description,
+          stargazers_count,
+          watchers_count,
+          forks_count,
+        }) => (
+          <div key={id} className="repo bg-white p-1 my-1">
+            <div>
+              <h4>
+                <a
+                  href={`https://github.com/Shakib448/${name}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {name}
+                </a>
+              </h4>
+              <p>{description ? { description } : "No description yet"}</p>
+            </div>
+            <div>
+              <ul>
+                <li className="badge badge-primary">
+                  Stars: {stargazers_count}
+                </li>
+                <li className="badge badge-dark">Watchers: {watchers_count}</li>
+                <li className="badge badge-light">Forks: {forks_count}</li>
+              </ul>
+            </div>
           </div>
-          <div>
-            <ul>
-              <li className="badge badge-primary">Stars: 44</li>
-              <li className="badge badge-dark">Watchers: 21</li>
-              <li className="badge badge-light">Forks: 25</li>
-            </ul>
-          </div>
-        </div>
-      ))}
+        )
+      )}
     </>
   );
 };
