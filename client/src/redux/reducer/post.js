@@ -14,7 +14,7 @@ const post = (state = initialState, action) => {
     case GET_POST:
       return {
         ...state,
-        post: payload,
+        posts: payload,
         loading: false,
       };
     case POST_ERROR:
