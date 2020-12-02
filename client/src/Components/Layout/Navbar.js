@@ -11,6 +11,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <NavLink to="/profiles">Developers</NavLink>
       </li>
       <li>
+        <NavLink to="/posts">Posts</NavLink>
+      </li>
+      <li>
         <i className="fas fa-user" />{" "}
         <NavLink to="/dashboard">Dashboard</NavLink>
       </li>
