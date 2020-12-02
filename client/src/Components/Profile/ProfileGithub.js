@@ -11,7 +11,7 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
   return (
     <>
       {repos.length === 0 && <h1> No github repositories</h1>}
-      {repos.map(({ id, name }) => (
+      {repos.map(({ id, name, description }) => (
         <div key={id} className="repo bg-white p-1 my-1">
           <div>
             <h4>
@@ -23,10 +23,7 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
                 {name}
               </a>
             </h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
-              laborum!
-            </p>
+            <p>{description ? { description } : "No description yet"}</p>
           </div>
           <div>
             <ul>
