@@ -8,6 +8,7 @@ import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
 import ProfileEducation from "./ProfileEducation";
+import ProfileGithub from "./ProfileGithub";
 
 const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
   let { id } = useParams();
@@ -39,6 +40,14 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
             </div>
             <div className="profile-edu bg-white p-2">
               <ProfileEducation profile={profile} />
+            </div>
+            <div className="profile-github">
+              <h2 className="text-primary my-1">
+                <i className="fab fa-github"></i> Github Repos
+              </h2>
+              {profile.githubusername && (
+                <ProfileGithub username={profile.githubusername} />
+              )}
             </div>
           </div>
         </>
