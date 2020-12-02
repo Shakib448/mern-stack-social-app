@@ -6,6 +6,7 @@ import { getProfileById } from "../../redux/actions/profile";
 import { Link, useParams } from "react-router-dom";
 import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
+import ProfileExperience from "./ProfileExperience";
 
 const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
   let { id } = useParams();
@@ -32,6 +33,9 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
           <div className="profile-grid my-1">
             <ProfileTop profile={profile} />
             <ProfileAbout profile={profile} />
+            <div className="profile-exp bg-white p-2">
+              <ProfileExperience profile={profile} />
+            </div>
           </div>
         </>
       )}
