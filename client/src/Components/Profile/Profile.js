@@ -7,6 +7,7 @@ import { Link, useParams } from "react-router-dom";
 import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
+import ProfileEducation from "./ProfileEducation";
 
 const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
   let { id } = useParams();
@@ -35,6 +36,9 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
             <ProfileAbout profile={profile} />
             <div className="profile-exp bg-white p-2">
               <ProfileExperience profile={profile} />
+            </div>
+            <div className="profile-edu bg-white p-2">
+              <ProfileEducation profile={profile} />
             </div>
           </div>
         </>

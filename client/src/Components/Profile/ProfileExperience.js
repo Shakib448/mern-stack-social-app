@@ -9,18 +9,13 @@ const ProfileExperience = ({ profile }) => {
       {profile.experience.length > 0 ? (
         <>
           {profile.experience.map(
-            ({
-              _id,
-              company,
-              title,
-              location,
-              current,
-              to,
-              from,
-              description,
-            }) => (
+            ({ _id, company, title, location, to, from, description }) => (
               <div key={_id}>
                 <h3 className="text-dark">{company}</h3>
+                <p>
+                  <strong>Location: </strong>
+                  {location}
+                </p>
                 <p>
                   <Moment format="YYYY/MM/DD">{from}</Moment> -
                   {!to ? "Now" : <Moment format="YYYY/MM/DD">{to}</Moment>}
@@ -29,6 +24,7 @@ const ProfileExperience = ({ profile }) => {
                   <strong>Position: </strong>
                   {title}
                 </p>
+
                 <p>
                   <strong>Description: </strong> {description}
                 </p>
