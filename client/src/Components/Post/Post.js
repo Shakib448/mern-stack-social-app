@@ -6,6 +6,7 @@ import { getPost } from "../../redux/actions/post";
 import { Link, useParams } from "react-router-dom";
 import PostItem from "../Posts/PostItem";
 import CommentForm from "./CommentForm";
+import CommentItem from "./CommentItem";
 
 const Post = ({ getPost, post: { post, loading } }) => {
   const { id } = useParams();
@@ -22,6 +23,11 @@ const Post = ({ getPost, post: { post, loading } }) => {
       </Link>
       <PostItem post={post} showActions={false} />
       <CommentForm postId={post._id} />
+      <div className="">
+        {post.comments.map((comment) => (
+          <CommentItem key={comment.id} comment={comment} postId={post._id} />
+        ))}
+      </div>
     </>
   );
 };
