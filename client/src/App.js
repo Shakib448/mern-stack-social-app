@@ -1,12 +1,7 @@
 import "./App.css";
 import Landing from "./Components/Layout/Landing";
 import Navbar from "./Components/Layout/Navbar";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  withRouter,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
 import Alert from "./Components/Layout/Alert";
@@ -24,6 +19,7 @@ import Profiles from "./Components/Profiles/Profiles";
 import Profile from "./Components/Profile/Profile";
 import Posts from "./Components/Posts/Posts";
 import Post from "./Components/Post/Post";
+import NotFound from "./Components/NotFound/NotFound";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -64,6 +60,7 @@ const App = () => {
               path="/add-education"
               component={AddEducation}
             />
+            <Route exact path="*" component={NotFound} />
           </section>
         </Switch>
       </Router>
