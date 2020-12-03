@@ -3,17 +3,15 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../Layout/Spinner";
 import { getPost } from "../../redux/actions/post";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PostItem from "../Posts/PostItem";
 import CommentForm from "./CommentForm";
 import CommentItem from "./CommentItem";
 
-const Post = ({ getPost, post: { post, loading } }) => {
-  const { id } = useParams();
-
+const Post = ({ getPost, post: { post, loading }, match }) => {
   useEffect(() => {
-    getPost(id);
-  }, [getPost, id]);
+    getPost(match.params.id);
+  }, [getPost, match.params.id]);
   return loading || post === null ? (
     <Spinner />
   ) : (

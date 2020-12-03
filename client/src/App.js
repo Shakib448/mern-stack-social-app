@@ -19,7 +19,6 @@ import Profiles from "./Components/Profiles/Profiles";
 import Profile from "./Components/Profile/Profile";
 import Posts from "./Components/Posts/Posts";
 import Post from "./Components/Post/Post";
-import NotFound from "./Components/NotFound/NotFound";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -33,6 +32,7 @@ const App = () => {
     <>
       <Router>
         <Navbar />
+
         <Switch>
           <Route exact path="/" component={Landing} />
           <section className="container">
@@ -60,7 +60,6 @@ const App = () => {
               path="/add-education"
               component={AddEducation}
             />
-            <Route exact path="*" component={NotFound} />
           </section>
         </Switch>
       </Router>

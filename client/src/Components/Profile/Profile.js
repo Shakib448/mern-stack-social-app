@@ -3,18 +3,22 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../Layout/Spinner";
 import { getProfileById } from "../../redux/actions/profile";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
 import ProfileEducation from "./ProfileEducation";
 import ProfileGithub from "./ProfileGithub";
 
-const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
-  let { id } = useParams();
+const Profile = ({
+  getProfileById,
+  profile: { profile, loading },
+  auth,
+  match,
+}) => {
   useEffect(() => {
-    getProfileById(id);
-  }, [getProfileById, id]);
+    getProfileById(match.params.id);
+  }, [getProfileById, match.params.id]);
   return (
     <>
       {profile === null || loading ? (
