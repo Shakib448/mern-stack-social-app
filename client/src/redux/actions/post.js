@@ -47,11 +47,12 @@ export const addLike = (id) => async (dispatch) => {
 
 // Remove Like
 export const removeLike = (id) => async (dispatch) => {
+  console.log(id);
   try {
     const res = await Axios.put("/api/posts/unlike/" + id);
 
     dispatch({
-      type: REMOVE_LIKES,
+      type: UPDATE_LIKES,
       payload: { id, likes: res.data },
     });
   } catch (err) {
