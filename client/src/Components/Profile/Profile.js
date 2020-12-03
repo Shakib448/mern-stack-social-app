@@ -45,14 +45,14 @@ const Profile = ({
             <div className="profile-edu bg-white p-2">
               <ProfileEducation profile={profile} />
             </div>
-            <div className="profile-github">
-              <h2 className="text-primary my-1">
-                <i className="fab fa-github"></i> Github Repos
-              </h2>
-              {profile.githubusername && (
+            {profile.githubusername && (
+              <div className="profile-github">
+                <h2 className="text-primary my-1">
+                  <i className="fab fa-github"></i> Github Repos
+                </h2>
                 <ProfileGithub username={profile.githubusername} />
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </>
       )}

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import Spinner from "../Layout/Spinner";
 import { getGithubRepos } from "../../redux/actions/profile";
 
 const ProfileGithub = ({ username, getGithubRepos, repos }) => {
@@ -10,7 +9,7 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
   }, [getGithubRepos]);
   return (
     <>
-      {repos.length === 0 && <h1> No github repositories</h1>}
+      {repos.length === 0 && <h1> Loading... </h1>}
       {repos.map(
         ({
           id,
