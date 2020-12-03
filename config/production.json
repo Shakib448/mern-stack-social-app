@@ -1,7 +1,0 @@
-{
-    "mongoURI": "mongodb+srv://mernDB:93FzqovzTCDLBC68@cluster0.ssxwz.mongodb.net/socialDB?retryWrites=true&w=majority",
-    "jwtSecret": "mySecretToken",
-    "githubClientId" : "05ce261ef95fb7f9ec85",
-    "githubSecret" : "b21f52d4e728a09dfcefbdef7f314bbc2d6bbbc8"
-  }
-  
