@@ -8,6 +8,7 @@ import { addLike, removeLike, deletePost } from "../../redux/actions/post";
 const PostItem = ({
   addLike,
   removeLike,
+  deletePost,
   auth,
   post: { _id, text, name, avatar, user, likes, comments, date },
 }) => {
