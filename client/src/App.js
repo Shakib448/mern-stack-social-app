@@ -1,7 +1,12 @@
 import "./App.css";
 import Landing from "./Components/Layout/Landing";
 import Navbar from "./Components/Layout/Navbar";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  withRouter,
+} from "react-router-dom";
 import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
 import Alert from "./Components/Layout/Alert";
@@ -24,7 +29,7 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-function App() {
+const App = () => {
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);
@@ -32,10 +37,10 @@ function App() {
     <>
       <Router>
         <Navbar />
-        <Route exact path="/" component={Landing} />
-        <section className="container">
-          <Alert />
-          <Switch>
+        <Switch>
+          <Route exact path="/" component={Landing} />
+          <section className="container">
+            <Alert />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile/:id" component={Profile} />
@@ -59,11 +64,11 @@ function App() {
               path="/add-education"
               component={AddEducation}
             />
-          </Switch>
-        </section>
+          </section>
+        </Switch>
       </Router>
     </>
   );
-}
+};
 
 export default App;
