@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import Spinner from "../Layout/Spinner";
 import { connect } from "react-redux";
-import { getPost } from "../../redux/actions/post";
+import { getPosts } from "../../redux/actions/post";
 import PostItem from "./PostItem";
 import PostForm from "./PostForm";
 
-const Post = ({ getPost, post: { posts, loading } }) => {
+const Post = ({ getPosts, post: { posts, loading } }) => {
   useEffect(() => {
-    getPost();
-  }, [getPost]);
+    getPosts();
+  }, [getPosts]);
   return loading ? (
     <Spinner />
   ) : (
@@ -39,4 +39,4 @@ const mapStateToProps = (state) => ({
   post: state.post,
 });
 
-export default connect(mapStateToProps, { getPost })(Post);
+export default connect(mapStateToProps, { getPosts })(Post);

@@ -3,19 +3,20 @@ import { setAlert } from "./alert";
 import {
   DELETE_POST,
   ADD_POST,
-  GET_POST,
+  GET_POSTS,
   POST_ERROR,
   UPDATE_LIKES,
+  GET_POST,
 } from "./type";
 
-// Get Post
+// Get Posts
 
-export const getPost = () => async (dispatch) => {
+export const getPosts = () => async (dispatch) => {
   try {
     const res = await Axios.get("/api/posts");
 
     dispatch({
-      type: GET_POST,
+      type: GET_POSTS,
       payload: res.data,
     });
   } catch (err) {
@@ -106,6 +107,28 @@ export const addPost = (formData) => async (dispatch) => {
     });
 
     dispatch(setAlert("Post Created", "success"));
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: {
+        msg: err.response.data.msg,
+        server: err.response.statusText,
+        status: err.response.status,
+      },
+    });
+  }
+};
+
+// Get Post
+
+export const getPost = (id) => async (dispatch) => {
+  try {
+    const res = await Axios.get("/api/posts/" + id);
+
+    dispatch({
+      type: GET_POST,
+      payload: res.data,
+    });
   } catch (err) {
     dispatch({
       type: POST_ERROR,
