@@ -14,7 +14,7 @@ connectDB();
 app.use(cors());
 
 // init Middleware
-app.use(express.json({ extended: false }));
+app.use(express.json());
 app.use(bodyParser.json());
 
 // Define routes
