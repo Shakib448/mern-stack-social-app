@@ -1,2 +1,1 @@
-
-G:\Udemy MERN stack course\Devconnector\Dev.png
+<img src='Dev.png'>
